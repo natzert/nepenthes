@@ -1,6 +1,6 @@
 #!/bin/bash
 
-DOCROOT=""
+DOCROOT="$HOME/Documents/nepenthes"
 TODAY=`date "+%Y%m%d"`
 END=`date -d "+7 days" "+%Y%m%d"`
 
