@@ -4,7 +4,13 @@ test_docroot() {
     if [[ ! -d $DOCROOT ]]; then
         echo "ERROR: $DOCROOT is specified as your document root but that directory does not exist."
         echo "Either create it or modify the \$DOCROOT variable in $0"
-        exit 1
+        echo "Would you like me to create $DOCROOT for you(yes/no)?"
+        read makedir
+        if [[ $makedir == yes ]]; then 
+          $(mkdir -p $DOCROOT)
+        else
+          exit 1
+        fi
         $SHELL
     fi
 }
