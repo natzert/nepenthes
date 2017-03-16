@@ -1,9 +1,5 @@
 #!/bin/bash
 
-DOCROOT="$HOME/Documents/nepenthes"
-TODAY=`date "+%Y%m%d"`
-END=`date -d "+7 days" "+%Y%m%d"`
-
 test_docroot() {
     if [[ ! -d $DOCROOT ]]; then
         echo "ERROR: $DOCROOT is specified as your document root but that directory does not exist."
@@ -43,8 +39,22 @@ newentry() {
     echo -e `date "+%I:%M %p"` "-" `date "+%a, %b %d"` "\n" >> $DOCROOT/latest.nep
 }
 
-test_docroot
 
+if [ -e $HOME/.local/share/nepenthes.conf ]; then
+    source $HOME/.local/share/nepenthes.conf 
+else
+    DOCROOT="$HOME/Documents/nepenthes"
+    TODAY=`date "+%Y%m%d"`
+    END=`date -d "+7 days" "+%Y%m%d"`
+    EDITOR='vim "+normal G$" +star'
+fi
+
+if [ $AUTOCREATE == 1 -a ! -d $DOCROOT ]; then
+    mkdir $DOCROOT
+else
+    test_docroot
+fi
+    
 if [ ! -f "$DOCROOT/latest.nep" ]; then
     echo "$DOCROOT/latest.nep doesn't exist. What is the date of your next handoff meeting?"
     read -p "Format YYYYMMDD: " END
@@ -68,4 +78,4 @@ fi
 
 newentry
 
-vim "+normal G$" +star $DOCROOT/latest.nep
+$EDITOR $DOCROOT/latest.nep 
