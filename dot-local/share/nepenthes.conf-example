@@ -1,4 +1,5 @@
 DOCROOT="$HOME/notes"
-TODAY=`date "+%Y%m%d"`
+#TZ='America/New_York' # Optional
+TODAY=`TZ=$TZ date "+%Y%m%d"`
 END=`date -d "+7 days" "+%Y%m%d"`
 AUTOCREATE=1 #0 for false
