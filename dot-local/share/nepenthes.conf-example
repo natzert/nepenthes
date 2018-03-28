@@ -1,5 +1,9 @@
-DOCROOT="$HOME/notes"
-#TZ='America/New_York' # Optional
-TODAY=`TZ=$TZ date "+%Y%m%d"`
-END=`date -d "+7 days" "+%Y%m%d"`
-AUTOCREATE=1 #0 for false
+[default]
+DOCROOT = /home/klaatu/notes
+TZ = 'America/New_York'
+AUTOCREATE = 1 
+
+[comp112]
+DOCROOT = /home/klaatu/school/lecture
+TZ = 'Pacific/Auckland'
+AUTOCREATE = 1 
