@@ -154,7 +154,7 @@ else
     # or set to these hardcoded defaults
     `$DEBUG` && echo "No config file found."
     DOCROOT="$HOME/Documents/nepenthes"
-    TODAY="`date "+%Y%m%d"`"
+    TODAY=`date "+%Y%m%d"`
     END=`date -d "+7 days" "+%Y%m%d"`
     EDITOR='vim "+normal G$" +star'
 fi
