@@ -7,3 +7,4 @@ AUTOCREATE = 1
 DOCROOT = /home/klaatu/school/lecture
 TZ = 'Pacific/Auckland'
 AUTOCREATE = 1 
+MODE = org
